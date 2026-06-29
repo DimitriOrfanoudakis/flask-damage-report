@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hardware Defektmeldung</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="formular">
+        <h1 class="titel">Hardware Defektmeldung</h1>
+        
+        <!-- Display errors if any -->
+        {% if errors %}
+            <h2 style="color: red;">Fehler beim speichern:</h2>
+            <ul style="color: red;">
+                {% for error in errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        
+        <form method="POST" action="/submit">
+            <!-- Employee ID -->
+            <div class="form-gruppe">
+                <label for="employee-id">Mitarbeiter-ID:</label>
+                <input type="text" 
+                       id="employee-id" 
+                       name="employee-id" 
+                       required 
+                       value="{{ form_data.employee_id if form_data else '' }}">
+            </div>
+            
+            <!-- Device Type -->
+            <div class="form-gruppe">
+                <label for="device-type">Gerätetyp:</label>
+                <select id="device-type" name="device-type" required>
+                    <option value="">-- Auswählen --</option>
+                    {% for device in device_types %}
+                        <option value="{{ device[0] }}"
+                                {% if form_data and form_data.device_type == device[0] %}selected{% endif %}>
+                            {{ device[0] }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <!-- Damage Date -->
+            <div class="form-gruppe">
+                <label for="damage-date">Schadensdatum:</label>
+                <input type="date" 
+                       id="damage-date" 
+                       name="damage-date" 
+                       required
+                       value="{{ form_data.damage_date if form_data else '' }}">
+            </div>
+            
+            <!-- Description -->
+            <div class="form-gruppe">
+                <label for="description">Beschreibung:</label>
+                <textarea id="description" 
+                          name="description" 
+                          required
+                          rows="5">{{ form_data.description if form_data else '' }}</textarea>
+            </div>
+            
+            <!-- Urgency (Radio Buttons) -->
+            <fieldset class="feld">
+                <legend>Dringlichkeit:</legend>
+                <label>
+                    <input type="radio" 
+                           name="urgency" 
+                           value="niedrig"
+                           {% if form_data and form_data.urgency == 'niedrig' %}checked{% endif %}
+                           required>
+                    Niedrig
+                </label>
+                <label>
+                    <input type="radio" 
+                           name="urgency" 
+                           value="mittel"
+                           {% if form_data and form_data.urgency == 'mittel' %}checked{% endif %}>
+                    Mittel
+                </label>
+                <label>
+                    <input type="radio" 
+                           name="urgency" 
+                           value="hoch"
+                           {% if form_data and form_data.urgency == 'hoch' %}checked{% endif %}>
+                    Hoch
+                </label>
+            </fieldset>
+            
+            <!-- Submit Button -->
+            <button type="submit" class="button">Absenden</button>
+        </form>
+    </div>
+</body>
+</html>

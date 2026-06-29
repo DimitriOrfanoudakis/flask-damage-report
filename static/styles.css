@@ -1,0 +1,80 @@
+body {
+    background-color: #d3d3d3;
+    font-family: Arial, sans-serif;
+}
+
+.formular {
+    width:400px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.titel {
+    text-align: center;
+    color: darkblue;
+}
+
+.form-gruppe {
+    margin-bottom: 15px;
+}
+
+.form-gruppe label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #808080;
+}
+
+.feld {
+  border: none;
+  margin-bottom: 15px;
+  padding: 0;
+}
+
+.feld legend {
+  font-weight: bold;
+  margin-bottom: 10px;
+  
+}
+
+.feld input[type="radio"] {
+    margin-right: 8px;
+    margin-bottom: 0px;
+    display:inline;
+    width: auto;
+}
+
+.feld label {
+    display: inline;
+    margin-right: 20px;
+}
+
+.button {
+  background-color: #00008B;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.button:hover {
+  background-color: #0000CD;
+}
+
+input:required,
+select:required,
+textarea:required {
+  border: 2px solid red;
+}

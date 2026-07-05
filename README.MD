@@ -35,6 +35,20 @@ Zum ausführen der App auf dem eigenen PC, bitte den Anweisungen unter **Install
 Eine genau 7-stellige Mitarbeiter-ID muss eingegeben werden. Anschließend werden Gerätetyp und Schadensdatum ausgewählt und eine kurze Beschreibung des Schadens verfasst.
 Sollte eine oder mehrere Eingaben nicht korrekt sein, werden die entsprechenden Fehler angezeigt.
 
+## Screenshots
+
+### Keine Beschreibung eingegeben
+![6-stellige MitarbeiterNr und keine Beschreibung](screenshots/1.png)
+
+### Ausgabe Validierungsfehler
+![Validierungsfehler weil MitarbeiterNr 6-stellig und Datum liegt in Zukunft](screenshots/2.png)
+
+### Ausgabe Speicherung Erfolgreich
+![Defektmeldung erfolgreich gespeichert](screenshots/3.png)
+
+### Eintrag in Datenbank erstellt
+![Datenbankeintrag](screenshots/4.png)
+
 ## Entwicklungsprozess
 Dieses Projekt ging aus einer Übungsaufgabe hervor, welche als erster Berührungspunkt mit HTML, CSS und PHP diente.
 Lernziel war vor allem den Umgang mit Formen und die Validierung ebendieser kennenzulernen. Die vom Benutzer eingegebenen Daten wurden durch die HTTP-Methoden GET und POST
